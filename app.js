@@ -15,7 +15,7 @@ const PORT = process.env.PORT
 
 
 app.use(cors({
-  origin: ['http://localhost:8158', 'http://localhost:5173'],
+  origin: process.env.NODE_ENV === "production" ? "https://safelogin.netlify.app/" : "http://localhost:5173",
   credentials: true
 }))
 app.use(cookieParser())
